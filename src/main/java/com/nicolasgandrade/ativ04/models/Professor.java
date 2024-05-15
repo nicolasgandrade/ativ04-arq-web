@@ -1,5 +1,6 @@
 package com.nicolasgandrade.ativ04.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,7 @@ public class Professor {
     private String rg;
     private String endereco;
     private String celular;
+    @JsonIgnore
     @OneToMany(mappedBy = "professor")
     private List<Treinamento> treinamentos;
     @ManyToMany(cascade = CascadeType.ALL)

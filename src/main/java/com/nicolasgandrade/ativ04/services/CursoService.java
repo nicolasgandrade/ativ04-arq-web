@@ -13,12 +13,13 @@ public class CursoService {
     @Autowired
     private CursoRepository cursoRepository;
 
-    public void adicionar(CursoRequestDTO cursoRequestDTO) {
+    public Curso adicionar(CursoRequestDTO cursoRequestDTO) {
         Curso curso = new Curso();
         curso.setDescricao(cursoRequestDTO.getDescricao());
         curso.setCargaHoraria(cursoRequestDTO.getCargaHoraria());
         curso.setObjetivos(cursoRequestDTO.getObjetivos());
-        cursoRepository.save(curso);
+
+        return cursoRepository.save(curso);
     }
 
 }

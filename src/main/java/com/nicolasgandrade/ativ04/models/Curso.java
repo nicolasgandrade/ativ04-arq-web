@@ -1,5 +1,6 @@
 package com.nicolasgandrade.ativ04.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,8 +19,10 @@ public class Curso {
     private String descricao;
     private int cargaHoraria;
     private String objetivos;
+    @JsonIgnore
     @ManyToMany(mappedBy = "especializacoes")
     private List<Professor> professores;
+    @JsonIgnore
     @OneToMany(mappedBy = "curso")
     private List<Treinamento> treinamentos;
 }

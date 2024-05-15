@@ -12,7 +12,7 @@ public class ProfessorService {
     @Autowired
     private ProfessorRepository professorRepository;
 
-    public void adicionarProfessor(ProfessorRequestDTO professorRequestDTO) {
+    public Professor adicionarProfessor(ProfessorRequestDTO professorRequestDTO) {
         var newProfessor = Professor.builder()
                 .nome(professorRequestDTO.nome())
                 .cpf(professorRequestDTO.cpf())
@@ -21,6 +21,6 @@ public class ProfessorService {
                 .endereco(professorRequestDTO.endereco())
                 .build();
 
-        professorRepository.save(newProfessor);
+        return professorRepository.save(newProfessor);
     }
 }

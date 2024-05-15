@@ -1,5 +1,6 @@
 package com.nicolasgandrade.ativ04.controllers;
 
+import com.nicolasgandrade.ativ04.models.Curso;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +12,7 @@ import com.nicolasgandrade.ativ04.dtos.CursoRequestDTO;
 import com.nicolasgandrade.ativ04.services.CursoService;
 
 @RestController
-@RequestMapping("api/curso")
+@RequestMapping("api/cursos")
 public class CursoController {
 
     private CursoService cursoService;
@@ -22,7 +23,7 @@ public class CursoController {
 
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
-    public void adicionar(@RequestBody CursoRequestDTO cursoRequestDTO) {
-        cursoService.adicionar(cursoRequestDTO);
+    public Curso adicionar(@RequestBody CursoRequestDTO cursoRequestDTO) {
+        return cursoService.adicionar(cursoRequestDTO);
     }
 }

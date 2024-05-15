@@ -16,8 +16,10 @@ public class Curso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String descricao;
-    private String cargaHoraria;
+    private int cargaHoraria;
     private String objetivos;
     @ManyToMany(mappedBy = "especializacoes")
     private List<Professor> professores;
+    @OneToMany(mappedBy = "curso")
+    private List<Treinamento> treinamentos;
 }

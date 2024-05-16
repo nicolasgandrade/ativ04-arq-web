@@ -17,4 +17,10 @@ public class ProfessorController {
     public Professor adicionarProfessor(@RequestBody ProfessorRequestDTO professorRequestDTO) {
         return professorService.adicionarProfessor(professorRequestDTO);
     }
+
+    @PatchMapping("/{professorId}/adicionar-especializacao/{cursoId}")
+    public Professor registrarEspecializacao(@PathVariable(name = "professorId") String professorId,
+                                             @PathVariable(name = "cursoId") String cursoId) {
+        return professorService.registrarEspecializacao(Integer.valueOf(cursoId), Integer.valueOf(professorId));
+    }
 }

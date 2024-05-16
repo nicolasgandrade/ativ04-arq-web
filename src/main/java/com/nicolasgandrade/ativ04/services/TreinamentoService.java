@@ -35,4 +35,11 @@ public class TreinamentoService {
 
         return treinamentoRepository.save(treinamento);
     }
+
+    public Treinamento registrarResumo(int treinamentoId, String resumo ) {
+        var treinamento = treinamentoRepository.findById(treinamentoId).orElseThrow();
+        treinamento.setResumo(resumo);
+
+        return treinamentoRepository.save(treinamento);
+    }
 }

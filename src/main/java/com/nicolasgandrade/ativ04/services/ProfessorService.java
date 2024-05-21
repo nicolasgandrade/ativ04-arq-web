@@ -2,6 +2,7 @@ package com.nicolasgandrade.ativ04.services;
 
 import com.nicolasgandrade.ativ04.dtos.ProfessorRequestDTO;
 import com.nicolasgandrade.ativ04.models.Professor;
+import com.nicolasgandrade.ativ04.models.Treinamento;
 import com.nicolasgandrade.ativ04.repositories.CursoRepository;
 import com.nicolasgandrade.ativ04.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,9 @@ public class ProfessorService {
         }
 
         return professorRepository.save(professor);
+    }
+
+    public List<Treinamento> findTreinamentosByProfessorId(int professorId) {
+        return professorRepository.findTreinamentosByProfessorId(professorId);
     }
 }

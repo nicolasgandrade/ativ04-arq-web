@@ -1,10 +1,15 @@
 package com.nicolasgandrade.ativ04.services;
 
 import com.nicolasgandrade.ativ04.dtos.TreinamentoRequestDTO;
+import com.nicolasgandrade.ativ04.models.Professor;
 import com.nicolasgandrade.ativ04.models.Treinamento;
 import com.nicolasgandrade.ativ04.repositories.CursoRepository;
 import com.nicolasgandrade.ativ04.repositories.ProfessorRepository;
 import com.nicolasgandrade.ativ04.repositories.TreinamentoRepository;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,10 +41,14 @@ public class TreinamentoService {
         return treinamentoRepository.save(treinamento);
     }
 
-    public Treinamento registrarResumo(int treinamentoId, String resumo ) {
+    public Treinamento registrarResumo(int treinamentoId, String resumo) {
         var treinamento = treinamentoRepository.findById(treinamentoId).orElseThrow();
         treinamento.setResumo(resumo);
 
         return treinamentoRepository.save(treinamento);
+    }
+
+    public List<Professor> findProfessoresLivres(LocalDateTime dataInicio, LocalDateTime dataFim) {
+        return treinamentoRepository.findProfessoresLivres(dataInicio, dataFim);
     }
 }
